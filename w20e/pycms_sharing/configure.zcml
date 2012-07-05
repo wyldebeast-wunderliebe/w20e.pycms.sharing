@@ -1,0 +1,27 @@
+<configure xmlns="http://pylonshq.com/pyramid"
+           xmlns:pycms="http://w20e.com/pycms"
+           >
+
+  <!-- this must be included for the view declarations to work -->
+  <include package="pyramid_zcml" />
+
+  <view
+     context="w20e.hitman.models.base.IContent"
+     view=".views.sharing.SharingView"
+     renderer="templates/sharing.pt"
+     name="sharing"
+     />
+
+  <pycms:action
+     name="sharing"
+     label="Sharing"
+     target="./sharing"
+     category="perspective"
+     />
+
+  <subscriber
+    for="w20e.pycms.security.IACLRequest"
+    handler=".sharing.add_sharing"
+    />
+
+</configure>

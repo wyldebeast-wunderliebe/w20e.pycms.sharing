@@ -9,6 +9,7 @@ version = open(os.path.join("w20e", "pycms_sharing", "version.txt")
                ).readlines()[0].strip()
 
 requires = [
+    'distribute',
     'zope.interface',
     'w20e.pycms',
     ]
@@ -28,6 +29,7 @@ setup(name='w20e.pycms_sharing',
       url='',
       keywords='web pylons pyramid',
       packages=find_packages(),
+      namespace_packages=['w20e'],
       include_package_data=True,
       zip_safe=False,
       install_requires = requires,
